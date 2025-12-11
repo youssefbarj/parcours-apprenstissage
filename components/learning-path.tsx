@@ -4,7 +4,7 @@ import { Check, LaptopMinimal, Video, Building, Trophy } from "lucide-react"
 
 export default function LearningPath() {
   return (
-    <div className="flex justify-center items-center min-h-screen p-8">
+        <div className="flex justify-center items-center min-h-screen p-8">
       <div
         className="relative w-[1280px] h-[720px] rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
         style={{
