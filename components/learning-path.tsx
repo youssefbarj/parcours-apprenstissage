@@ -149,7 +149,7 @@ export default function LearningPath() {
               className="font-bold text-[19px] text-white mb-2"
               style={{ fontFamily: "Outfit, sans-serif", textShadow: "0 2px 4px #000000" }}
             >
-              Validation Vidéo
+              Validation du devoir
             </h3>
             <p
               className="text-[15px] text-white font-semibold leading-[1.4] px-[5px]"
