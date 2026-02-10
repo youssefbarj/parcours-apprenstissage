@@ -104,14 +104,21 @@ export default function LearningPath() {
           style={{ left: "35%", top: "35%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(207,159,255,0.5)]"
+            className="relative w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] transition-all duration-300 hover:scale-110"
             style={{
-              background: "#000435",
-              border: "3px solid #CF9FFF",
-              boxShadow: "0 0 20px rgba(207, 159, 255, 0.2), inset 0 0 10px rgba(207, 159, 255, 0.1)",
+              background: "#CF9FFF",
+              border: "3px solid #fff",
+              color: "#000435",
+              boxShadow: "0 0 30px rgba(207, 159, 255, 0.6)",
             }}
           >
-            <LaptopMinimal size={28} />
+            <Check size={28} strokeWidth={2.5} />
+            <div
+              className="absolute -top-[15px] -right-[15px] bg-white text-[10px] font-bold px-2 py-1 rounded-[10px] shadow-md animate-bounce"
+              style={{ color: "#000435" }}
+            >
+              VALIDÉ
+            </div>
           </div>
           <div className="absolute top-[85px] w-[220px] text-center">
             <h3
@@ -129,20 +136,27 @@ export default function LearningPath() {
           </div>
         </div>
 
-        {/* Node 3: Video - Locked */}
+        {/* Node 3: Devoir - Done */}
         <div
           className="absolute z-[2] flex flex-col items-center justify-center cursor-default"
           style={{ left: "55%", top: "65%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] transition-all duration-300"
+            className="relative w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] transition-all duration-300 hover:scale-110"
             style={{
-              background: "#000435",
-              border: "3px solid rgba(255, 255, 255, 0.2)",
-              color: "rgba(255, 255, 255, 0.3)",
+              background: "#CF9FFF",
+              border: "3px solid #fff",
+              color: "#000435",
+              boxShadow: "0 0 30px rgba(207, 159, 255, 0.6)",
             }}
           >
-            <Video size={28} />
+            <Check size={28} strokeWidth={2.5} />
+            <div
+              className="absolute -top-[15px] -right-[15px] bg-white text-[10px] font-bold px-2 py-1 rounded-[10px] shadow-md animate-bounce"
+              style={{ color: "#000435" }}
+            >
+              VALIDÉ
+            </div>
           </div>
           <div className="absolute top-[85px] w-[220px] text-center">
             <h3
@@ -160,17 +174,17 @@ export default function LearningPath() {
           </div>
         </div>
 
-        {/* Node 4: Stage - Locked */}
+        {/* Node 4: Stage - Current */}
         <div
           className="absolute z-[2] flex flex-col items-center justify-center cursor-default"
           style={{ left: "75%", top: "35%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] transition-all duration-300"
+            className="w-[70px] h-[70px] rounded-full flex items-center justify-center text-[28px] text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(207,159,255,0.5)]"
             style={{
               background: "#000435",
-              border: "3px solid rgba(255, 255, 255, 0.2)",
-              color: "rgba(255, 255, 255, 0.3)",
+              border: "3px solid #CF9FFF",
+              boxShadow: "0 0 20px rgba(207, 159, 255, 0.2), inset 0 0 10px rgba(207, 159, 255, 0.1)",
             }}
           >
             <Building size={28} />
