@@ -1,10 +1,30 @@
 "use client"
 
 import { Check, LaptopMinimal, Video, Building, Trophy } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function LearningPath() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  if (isMobile) {
+    return <MobileView />
+  }
+
+  return <DesktopView />
+}
+
+function DesktopView() {
   return (
-        <div className="flex justify-center items-start min-h-screen">
+    <div className="flex justify-center items-start min-h-screen">
       <div
         className="relative w-[1280px] h-[720px] rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
         style={{
@@ -98,7 +118,7 @@ export default function LearningPath() {
           </div>
         </div>
 
-        {/* Node 2: QCM - Current */}
+        {/* Node 2: QCM - Done */}
         <div
           className="absolute z-[2] flex flex-col items-center justify-center cursor-default"
           style={{ left: "35%", top: "35%", transform: "translate(-50%, -50%)" }}
@@ -242,6 +262,159 @@ export default function LearningPath() {
           }
         `}</style>
       </div>
+    </div>
+  )
+}
+
+function MobileView() {
+  const nodes = [
+    {
+      title: "Théorie",
+      description: "Bases fondamentales acquises avec succès.",
+      icon: Check,
+      status: "done",
+      badge: "VALIDÉ"
+    },
+    {
+      title: "QCM en Ligne",
+      description: "Testez vos connaissances sur la plateforme.",
+      icon: Check,
+      status: "done",
+      badge: "VALIDÉ"
+    },
+    {
+      title: "Validation du devoir",
+      description: "Soumettez votre pratique pour analyse.",
+      icon: Check,
+      status: "done",
+      badge: "VALIDÉ"
+    },
+    {
+      title: "Stage Pratique",
+      description: "Immersion en institut partenaire.",
+      icon: Building,
+      status: "current"
+    },
+    {
+      title: "CERTIFICATION",
+      description: "Devenez un expert E-lumy certifié.",
+      icon: Trophy,
+      status: "final"
+    }
+  ]
+
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#000435" }}>
+      {/* Header */}
+      <div className="sticky top-0 z-20 px-4 py-4" style={{ backgroundColor: "rgba(0, 4, 53, 0.95)", backdropFilter: "blur(10px)" }}>
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-xl font-bold text-white" style={{ fontFamily: "Outfit, sans-serif" }}>
+            Votre parcours d'apprentissage
+          </h1>
+          <img
+            src="/images/elumy-logo.png"
+            alt="E-LUMY"
+            className="h-12 w-auto"
+          />
+        </div>
+        <div className="h-0.5 bg-gradient-to-r from-purple-400/50 to-transparent" />
+      </div>
+
+      {/* Progress Timeline */}
+      <div className="px-4 py-6 pb-20">
+        {nodes.map((node, index) => {
+          const Icon = node.icon
+          const isLast = index === nodes.length - 1
+
+          return (
+            <div key={index} className="relative">
+              {/* Connection Line */}
+              {!isLast && (
+                <div
+                  className="absolute left-6 top-12 w-0.5"
+                  style={{
+                    height: "calc(100% + 8px)",
+                    background: "linear-gradient(to bottom, #CF9FFF, rgba(207, 159, 255, 0.2))",
+                  }}
+                />
+              )}
+
+              {/* Node Card */}
+              <div className="relative flex gap-4 mb-6">
+                {/* Icon Circle */}
+                <div className="relative flex-shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{
+                      background: node.status === "done" ? "#CF9FFF" :
+                                 node.status === "current" ? "#000435" :
+                                 "#000435",
+                      border: node.status === "done" ? "3px solid #fff" :
+                               node.status === "current" ? "3px solid #CF9FFF" :
+                               "3px solid rgba(255, 255, 255, 0.2)",
+                      boxShadow: node.status === "done" ? "0 0 20px rgba(207, 159, 255, 0.6)" :
+                                   node.status === "current" ? "0 0 15px rgba(207, 159, 255, 0.3)" :
+                                   "none",
+                    }}
+                  >
+                    <Icon
+                      size={24}
+                      style={{
+                        color: node.status === "done" ? "#000435" :
+                               node.status === "final" ? "#CF9FFF" :
+                               node.status === "current" ? "#fff" :
+                               "rgba(255, 255, 255, 0.3)"
+                      }}
+                    />
+                  </div>
+
+                  {/* Badge */}
+                  {node.badge && (
+                    <div
+                      className="absolute -top-2 -right-2 bg-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-md"
+                      style={{ color: "#000435" }}
+                    >
+                      {node.badge}
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pt-1">
+                  <h3
+                    className="font-bold text-lg mb-1"
+                    style={{
+                      fontFamily: "Outfit, sans-serif",
+                      color: node.status === "final" ? "#CF9FFF" : "#fff",
+                    }}
+                  >
+                    {node.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {node.description}
+                  </p>
+
+                  {/* Current Status Badge */}
+                  {node.status === "current" && (
+                    <div className="mt-2 inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold"
+                         style={{ backgroundColor: "rgba(207, 159, 255, 0.2)", color: "#CF9FFF" }}>
+                      <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                      En cours
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Bottom Gradient */}
+      <div className="fixed bottom-0 left-0 right-0 h-20 pointer-events-none"
+           style={{
+             background: "linear-gradient(to top, #000435, transparent)"
+           }}
+      />
     </div>
   )
 }
