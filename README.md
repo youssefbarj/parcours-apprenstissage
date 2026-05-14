@@ -8,7 +8,7 @@
 
 ## Screenshot
 
-![parcours-apprenstissage](https://github.com/youssefbarj/parcours-apprenstissage/raw/main/screenshot.png)
+![parcours-apprenstissage](https://raw.githubusercontent.com/youssefbarj/parcours-apprenstissage/main/screenshot.png)
 
 ## What this slide does
 
