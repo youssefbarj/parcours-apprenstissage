@@ -1,18 +1,21 @@
-# Parcours d'Apprentissage Mannequin — Entrainement Mannequin Slide 9
+# parcours-apprenstissage
 
-**Course:** Entrainement Mannequin  
-**Slide:** 9  
-**Live URL:** https://parcours-apprenstissage.edtechiecorp.com  
-**Stack:** Next.js · Tailwind CSS · TypeScript · GitHub Pages  
+**Course:** Not currently embedded in E-Lumy's Coassemble
+**Live URL:** https://parcours-apprenstissage.edtechiecorp.com
+**Stack:** Next.js · Tailwind CSS · TypeScript · GitHub Pages
 
-## What this slide does
-
-Learning path overview for the mannequin training module, showing learners the structure of their practical training journey on mannequin heads before moving to real clients. At slide 9, this recap-style slide consolidates the training path completed so far and indicates what practical milestones remain. It helps learners see their overall progress within the mannequin training curriculum.
+> Not currently embedded in any E-Lumy course (was Entrainement Mannequin slide 9 in original workspace).
 
 ## Screenshot
 
-![parcours-apprenstissage](./screenshot.png)
+![parcours-apprenstissage](https://github.com/youssefbarj/parcours-apprenstissage/raw/main/screenshot.png)
+
+## What this slide does
+
+This is an interactive slide embedded as an iframe inside Coassemble. See the screenshot above for a visual preview of the content.
 
 ## Usage
 
-This slide is embedded as an iframe inside Coassemble at the live URL above. DNS is managed via Cloudflare (`edtechiecorp.com`). To update the slide, push to the `main` branch — GitHub Actions will rebuild and redeploy automatically.
+This slide is served via GitHub Pages at the live URL above. DNS is managed via Cloudflare (`edtechiecorp.com`). To update the slide, push to the `main` branch — GitHub Actions will rebuild and redeploy automatically.
+
+> **For E-Lumy's tech team:** After migrating this repo to your own GitHub account, re-enable GitHub Pages in Settings → Pages → Source: GitHub Actions. Then update the embed URL in Coassemble to your new deployment URL.
